@@ -5,7 +5,7 @@
 
 .hero-container {
 	background: url(../../bg-images/hero.jpg);
-	background-size: 1800px 100%;
+	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 100vh;
@@ -19,8 +19,8 @@
 	width: 50%;
 	flex-direction: column;
 	padding: 30px;
-	margin-top: 130px;
-	margin-left: 20px;
+	margin-top: 200px;
+	margin-left: 50px;
 }
 
 .hero-description p {
@@ -63,7 +63,7 @@
 @media screen and (max-width: 768px) {
 	.hero-container {
 		background: url(../../bg-images/hero.jpg);
-		background-size: 1200px 100%;
+		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
 		height: auto;
