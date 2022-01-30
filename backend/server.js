@@ -1,14 +1,22 @@
 import express from 'express';
-// eslint-disable-next-line no-unused-vars
 import mongoose from 'mongoose';
 import cors from 'cors';
+
+// importing routes
+const patientRoute = require('./routes/patient');
+const doctorRoute = require('./routes/doctor'); 
+
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// add middlewares
+// add middleware
 app.use(cors());
 app.use(express.json());
+
+// add routes as middleware
+app.use('/patients', patientRoute);
+app.use('/doctors', doctorRoute);
 
 
 app.listen(PORT, () =>{
