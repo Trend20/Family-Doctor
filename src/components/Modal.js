@@ -9,7 +9,6 @@ function Modal({ handleClose, show, children }) {
 	const [phone, setPhone] = useState('');
 	const [message, setMessage] = useState('');
 	const [error, setError] = useState('You must fill all the Field');
-	const [success, setSuccess] = useState('We will contact you shortly!!');
 
 	// handling form submission
 	const handleSubmit = (event) => {
@@ -62,7 +61,6 @@ function Modal({ handleClose, show, children }) {
 					placeholder="Message*"
 					onChange={handleMessageInput}
 				></textarea>
-				<p id="success">{success}</p>
 				<button type="submit" onClick={showMessage}>
 					Request
 				</button>
