@@ -9,6 +9,7 @@ class Contact extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			users: [],
 			name: '',
 			email: '',
 			phone: '',
@@ -45,9 +46,25 @@ class Contact extends Component {
 
 
 	// handling form submit
-	onFormSubmit = () =>{
-			
+	onFormSubmit = (event) =>{
+
+      event.preventDefault();
+			const newUser ={
+				name: this.state.name,
+				email: this.state.email,
+				phone: this.state.phone,
+				message: this.state.message
+			}
+
+			this.setState( state =>({
+				users: state.users.concat(newUser),
+				name: '',
+				email: '',
+				phone: '',
+				message: '',
+			}))
 	}
+
 	render() {
 		return (
 			<div className="contact-us" id="contact">
@@ -90,13 +107,33 @@ class Contact extends Component {
 					</div>
 
 					<div className="contact-form">
-						<form>
+						<form onSubmit={this.onFormSubmit}>
 							<h1>Get In Touch</h1>
-							<input type="text" placeholder="Name*" className="input-field" required />
-							<input type="email" placeholder="Email*" className="input-field" required />
-							<input type="tel" placeholder="Phone" className="input-field" required />
-							<textarea name="message" id="message" cols="30" rows="2" placeholder="Message*"></textarea>
-							<button className="submit-btn">Send Message</button>
+
+							<input type="text" placeholder="Name*" 
+							value={this.state.name} 
+							className="input-field"
+							onChange={this.handleNameChange} 
+							required 
+							/>
+							<input type="email" placeholder="Email*" 
+							value={this.state.email} 
+							className="input-field" 
+							onChange={this.handleEmailChange} 
+							required 
+							/>
+							<input type="tel" placeholder="Phone" 
+							value={this.state.phone} 
+							className="input-field" 
+							onChange={this.handlePhoneChange} 
+							required 
+							/>
+							<textarea name="message" id="message" 
+							value={this.state.message} 
+							cols="30" rows="2" placeholder="Message*"
+							onChange={this.handleMessageChange} 
+							></textarea>
+							<button className="submit-btn" type='submit'>Send Message</button>
 						</form>
 					</div>
 				</div>
