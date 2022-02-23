@@ -14,17 +14,39 @@ class Contact extends Component {
 			phone: '',
 			message: '',
 		};
-
-		this.handleChange = this.handleChange.bind(this);
 	}
 
-	handleChange(event) {
+	// name handler
+	handleNameChange = (event) =>{
 		this.setState({
-			name: event.terget.value,
-			email: event.terget.value,
-			phone: event.terget.value,
-			message: event.terget.value,
-		});
+			name: event.target.value
+		})
+	}
+
+	// email handler
+	handleEmailChange = (event) =>{
+		this.setState({
+			email: event.target.value
+		})
+	}
+	// phone handler
+	handlePhoneChange = (event) =>{
+		this.setState({
+			phone: event.target.value
+		})
+	}
+
+	// message handler
+	handleMessageChange = (event) =>{
+		this.setState({
+			message: event.target.value
+		})
+	}
+
+
+	// handling form submit
+	onFormSubmit = () =>{
+			
 	}
 	render() {
 		return (
