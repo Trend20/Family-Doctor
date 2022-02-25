@@ -3,9 +3,9 @@ const router = express.Router();
 
 const Doctor = require('../models/doctor.model');
 
-router.route('/').get((req, res) =>{
+router.route('/doctor').get((req, res) =>{
     Doctor.find()
-          .then(doctors => res.json(doctors))
+          .then(doctor => res.json(doctor))
           .catch((error) => res.status(400).json('Error ' + error));
 });
 
