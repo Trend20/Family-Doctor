@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { RiPhoneFill, RiMap2Line } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
+import axios from 'axios';
 
 import './Contact.css';
 
@@ -55,6 +56,11 @@ class Contact extends Component {
 				phone: this.state.phone,
 				message: this.state.message
 			}
+
+			axios.post('http:localhost:4000/patients/add', newUser)
+			.then(res => {
+				console.log(res.data);
+			});
 
 			this.setState( state =>({
 				users: state.users.concat(newUser),
