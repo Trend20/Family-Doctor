@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
+import Loader from "react-loader-spinner";
+import HashLoader from "react-spinners/ClipLoader";
 import Navbar from '../Navbar/Navbar';
 import Modal from '../Modal';
 
 // hero styles
 import './Hero.css';
 
-function Hero() {
+const  Hero = () =>{
 	// adding the modal pop-up
 
 	const [show, setShow] = useState(false);
 
 	// function to show the modal
 	const showModal = () => {
-		setShow(true);
+		setTimeout(() => {
+			setShow(true);
+	}, 2000);
 	};
 
 	// function to close the modal
