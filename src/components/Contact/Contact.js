@@ -45,7 +45,7 @@ class Contact extends Component {
 	validate = () =>{
 		let nameError = "";
     let emailError = "";
-    let passwordError = "";
+    let phoneError = "";
 		let messageError = ""
 
 		if(!this.state.name){
@@ -58,15 +58,15 @@ class Contact extends Component {
     }
 
     if (!this.state.password) {
-      passwordError = "Password field is required";
+      phoneError = "Phone field is required";
     }
 
 		if (!this.state.message) {
       messageError = "Message field is required";
     }
 
-    if (emailError || nameError || passwordError || messageError) {
-      this.setState({ nameError, emailError, passwordError, messageError });
+    if (emailError || nameError || phoneError || messageError) {
+      this.setState({ nameError, emailError, phoneError, messageError });
       return false;
     }
     return true;
@@ -159,7 +159,7 @@ class Contact extends Component {
 							onChange={this.handleNameChange} 
 							/>
 							<span className="text-danger">{this.state.nameError}</span>
-							
+
 							<input type="email" placeholder="Email*" 
 							value={this.state.email} 
 							className="input-field" 
