@@ -15,6 +15,10 @@ class Contact extends Component {
 			email: '',
 			phone: '',
 			message: '',
+			emailError: "",
+			phoneError: "",
+			nameError: "",
+			messageError: ""
 		};
 	}
 
@@ -38,12 +42,43 @@ class Contact extends Component {
 		})
 	}
 
+	validate = () =>{
+		let nameError = "";
+    let emailError = "";
+    let passwordError = "";
+		let messageError = ""
+
+		if(!this.state.name){
+			nameError = "Name field is required";
+		}
+
+		const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!this.state.email || reg.test(this.state.email) === false) {
+      emailError = "Email Field is Invalid ";
+    }
+
+    if (!this.state.password) {
+      passwordError = "Password field is required";
+    }
+
+		if (!this.state.message) {
+      messageError = "Message field is required";
+    }
+
+    if (emailError || nameError || passwordError || messageError) {
+      this.setState({ nameError, emailError, passwordError, messageError });
+      return false;
+    }
+    return true;
+	}
+
 	// message handler
 	handleMessageChange = (event) =>{
 		this.setState({
 			message: event.target.value
 		})
 	}
+
 
 
 	// handling form submit
