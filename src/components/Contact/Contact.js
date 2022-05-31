@@ -104,6 +104,8 @@ class Contact extends Component {
 				phone: '',
 				message: '',
 			}))
+
+			this.validate();
 	}
 
 	render() {
@@ -155,25 +157,30 @@ class Contact extends Component {
 							value={this.state.name} 
 							className="input-field"
 							onChange={this.handleNameChange} 
-							required 
 							/>
+							<span className="text-danger">{this.state.nameError}</span>
+							
 							<input type="email" placeholder="Email*" 
 							value={this.state.email} 
 							className="input-field" 
 							onChange={this.handleEmailChange} 
-							required 
 							/>
+							<span className="text-danger">{this.state.emailError}</span>
+
 							<input type="tel" placeholder="Phone" 
 							value={this.state.phone} 
 							className="input-field" 
 							onChange={this.handlePhoneChange} 
-							required 
 							/>
+							<span className="text-danger">{this.state.phoneError}</span>
+
 							<textarea name="message" id="message" 
 							value={this.state.message} 
 							cols="30" rows="2" placeholder="Message*"
 							onChange={this.handleMessageChange} 
 							></textarea>
+							<span className="text-danger">{this.state.messageError}</span>
+
 							<button className="submit-btn" type='submit'>Send Message</button>
 						</form>
 					</div>
