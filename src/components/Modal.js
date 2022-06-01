@@ -9,7 +9,7 @@ function Modal({ handleClose, show, children }) {
 	const [name, setName] = useState('');
 	const [phone, setPhone] = useState('');
 	const [message, setMessage] = useState('');
-	const [invalid, setInvalid] = useState("");
+	const [isValid, setIsValid] = useState(true);
 
 	const handleNameChange = (event) => {
 		setName(event.target.value);
@@ -39,8 +39,9 @@ function Modal({ handleClose, show, children }) {
 			setMessage("");
 			setName("");
 			setPhone("");
+			setIsValid(true)
 		}else{
-			setInvalid("invalid")
+			setIsValid(false)
 			Swal.fire({
 				icon: 'error',
 				title: 'Oops...',
@@ -57,11 +58,10 @@ function Modal({ handleClose, show, children }) {
 				<h3>Request A Callback</h3>
 				<p>We can call you in 30 seconds, just enter your details below</p>
 				<input type="text" placeholder="Name*" 
-					className={invalid}
+					style={{ borderColor: !isValid ? 'red' : '#ccc'}} 
 					value={name} onChange={handleNameChange} 
 				/>
 				<input type="tel" placeholder="Phone*" 
-					className={invalid}
 					value={phone} onChange={handlePhoneChange} 
 				/>
 				<textarea
