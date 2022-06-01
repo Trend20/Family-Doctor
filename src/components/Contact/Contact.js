@@ -140,7 +140,7 @@ class Contact extends Component {
 			Swal.fire({
 				icon: 'error',
 				title: 'Oops...',
-				text: 'Please fill all the fields!',
+				text: 'Please fill all the fields before submitting!',
 				timer: 2500
 			})
 		}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
+import Swal from "sweetalert2";
 import './Modal.css';
 
 function Modal({ handleClose, show, children }) {
@@ -8,13 +9,7 @@ function Modal({ handleClose, show, children }) {
 	const [name, setName] = useState('');
 	const [phone, setPhone] = useState('');
 	const [message, setMessage] = useState('');
-	const [error, setError] = useState('You must fill all the Field');
-
-	// handling form submission
-	const handleSubmit = (event) => {
-		// preventDefault
-		event.preventDefault();
-	};
+	const [invalid, setInvalid] = useState("");
 
 	const handleNameChange = (event) => {
 		setName(event.target.value);
@@ -28,20 +23,32 @@ function Modal({ handleClose, show, children }) {
 		setMessage(event.target.value);
 	};
 
-	// form validation on button click
 
-	const showMessage = (name, phone, message) => {
-		if (name !== '' && phone !== '' && message !== '') {
-			let successElement = document.getElementById('success');
-			successElement.style.display = 'block';
-			setName('');
-			setPhone('');
-			setMessage('');
-		} else {
-			let errorElement = document.getElementById('error');
-			errorElement.style.display = 'block';
+	// handling form submission
+	const handleSubmit = (event) => {
+		// preventDefault
+		event.preventDefault();
+
+		if(name !== "" && phone !== "" && message !== ""){
+			Swal.fire({
+				icon: 'success',
+				title: 'Thank you.',
+				text: 'We will get back to you shortly!',
+				timer: 2500
+			})
+			setMessage("");
+			setName("");
+			setPhone("");
+		}else{
+			setInvalid("invalid")
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: 'Please fill all the fields before submitting!',
+				timer: 2500
+			})
 		}
-	};
+	}
 
 	const showHideClassName = show ? 'modal display-block' : 'modal display-none';
 	return (
@@ -49,9 +56,14 @@ function Modal({ handleClose, show, children }) {
 			<form className="modal-main" onSubmit={handleSubmit}>
 				<h3>Request A Callback</h3>
 				<p>We can call you in 30 seconds, just enter your details below</p>
-				<p id="error">{error}</p>
-				<input type="text" placeholder="Name*" value={name} onChange={handleNameChange} required />
-				<input type="text" placeholder="Phone*" value={phone} onChange={handlePhoneChange} required />
+				<input type="text" placeholder="Name*" 
+					className={invalid}
+					value={name} onChange={handleNameChange} 
+				/>
+				<input type="tel" placeholder="Phone*" 
+					className={invalid}
+					value={phone} onChange={handlePhoneChange} 
+				/>
 				<textarea
 					name="message"
 					id="message"
@@ -61,7 +73,7 @@ function Modal({ handleClose, show, children }) {
 					placeholder="Message*"
 					onChange={handleMessageInput}
 				></textarea>
-				<button type="submit" onClick={showMessage}>
+				<button type="submit">
 					Request
 				</button>
 				<i onClick={handleClose}>

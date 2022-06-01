@@ -12,9 +12,7 @@ const  Hero = () =>{
 
 	// function to show the modal
 	const showModal = () => {
-		setTimeout(() => {
-			setShow(true);
-	}, 2000);
+		setShow(true);
 	};
 
 	// function to close the modal
