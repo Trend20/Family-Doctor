@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TiPlus, TiMinus, TiScissors } from 'react-icons/ti';
+import { TiPlus, TiMinus} from 'react-icons/ti';
 import './FAQs.css';
 
 class FAQs extends Component {
