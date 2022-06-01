@@ -51,12 +51,12 @@ class Contact extends Component {
 		})
 	}
 
-	showSuccess = ()=>{
-		const { name, phone, email, message} = this.state;
-		if(name !== "" && phone !== "" && email !== "" && message !== ""){
+	// showSuccess = ()=>{
+	// 	const { name, phone, email, message} = this.state;
+	// 	if(name !== "" && phone !== "" && email !== "" && message !== ""){
 			
-		}
-	}
+	// 	}
+	// }
 
 	validate = () =>{
 		let nameError = "";
@@ -66,28 +66,20 @@ class Contact extends Component {
 
 		if(!this.state.name){
 			nameError = "Name field is required";
-		}else{
-			nameError = "";
 		}
 
 		const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (!this.state.email || reg.test(this.state.email) === false) {
       emailError = "Email Field is Invalid ";
-    }else{
-			emailError = "";
-		}
+    }
 
     if (!this.state.phone) {
       phoneError = "Phone field is required";
-    }else{
-			phoneError = "";
-		}
+    }
 
 		if (!this.state.message) {
       messageError = "Message field is required";
-    }else{
-			messageError = "";
-		}
+    }
 
     if (emailError || nameError || phoneError || messageError) {
       this.setState({ nameError, emailError, phoneError, messageError });
@@ -129,7 +121,7 @@ class Contact extends Component {
 				name: '',
 				email: '',
 				phone: '',
-				message: '',
+				message: ''
 			}))
 	}
 
