@@ -7,6 +7,7 @@ class FAQs extends Component {
 		super(props);
 		this.state = {
 			toggleSign: <TiPlus />,
+			showContent: false,
 			description: [
 				{
 					quiz: "01.If you had just to eat one thing for the rest of your life, What would you choose?",
@@ -33,6 +34,22 @@ class FAQs extends Component {
 			toggleSign: !this.state.toggleSign,
 		});
 	};
+
+
+	showPageContents = () =>{
+		if(this.state.toggleSign){
+			this.setState({
+				showContent: !false
+			})
+			this.handleToggle();
+		}else{
+			this.setState({
+				showContent: false
+			})
+			this.handleToggle();
+		}
+	}
+
 	render() {
 		return (
 			<div className="faqs">
@@ -43,15 +60,15 @@ class FAQs extends Component {
 						this.state.description.map((question, index) =>{
 							return(
 								<div className="question-container" key={index}>
-									<div className="quiz-head" onClick={this.handleToggle}>
+									<div className="quiz-head" onClick={this.showPageContents()}>
 										<h5>
 											{question.quiz}
 										</h5>
 										<i>{this.state.toggleSign ? <TiPlus /> : <TiMinus />}</i>
 									</div>
-									<p>
-										{question.content}
-									</p>
+									{
+										this.state.showContent ? <p>{question.content}</p> : null
+									}
 								</div>
 							)
 						})
