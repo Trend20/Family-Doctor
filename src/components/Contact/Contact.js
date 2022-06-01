@@ -51,12 +51,6 @@ class Contact extends Component {
 		})
 	}
 
-	// showSuccess = ()=>{
-	// 	const { name, phone, email, message} = this.state;
-	// 	if(name !== "" && phone !== "" && email !== "" && message !== ""){
-			
-	// 	}
-	// }
 
 	validate = () =>{
 		let nameError = "";
@@ -66,6 +60,8 @@ class Contact extends Component {
 
 		if(!this.state.name){
 			nameError = "Name field is required";
+		}else{
+			nameError = ""
 		}
 
 		const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -83,10 +79,11 @@ class Contact extends Component {
 
     if (emailError || nameError || phoneError || messageError) {
       this.setState({ nameError, emailError, phoneError, messageError });
-      return false;
+     return false;
     }
     
-			Swal.fire({  
+			Swal.fire({ 
+				icon: 'success', 
 				title: 'Success',  
 				type: 'success',  
 				text: 'We will get back to you shortly!',  

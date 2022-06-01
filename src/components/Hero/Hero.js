@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Loader from "react-loader-spinner";
-import HashLoader from "react-spinners/ClipLoader";
 import Navbar from '../Navbar/Navbar';
 import Modal from '../Modal';
 
