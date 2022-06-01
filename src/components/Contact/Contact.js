@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { RiPhoneFill, RiMap2Line } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
+import Swal from "sweetalert2"; 
 import axios from 'axios';
 
 import './Contact.css';
@@ -18,7 +19,8 @@ class Contact extends Component {
 			emailError: "",
 			phoneError: "",
 			nameError: "",
-			messageError: ""
+			messageError: "",
+			successMessage: ""
 		};
 	}
 
@@ -42,6 +44,20 @@ class Contact extends Component {
 		})
 	}
 
+	// message handler
+	handleMessageChange = (event) =>{
+		this.setState({
+			message: event.target.value
+		})
+	}
+
+	showSuccess = ()=>{
+		const { name, phone, email, message} = this.state;
+		if(name !== "" && phone !== "" && email !== "" && message !== ""){
+			
+		}
+	}
+
 	validate = () =>{
 		let nameError = "";
     let emailError = "";
@@ -50,34 +66,42 @@ class Contact extends Component {
 
 		if(!this.state.name){
 			nameError = "Name field is required";
+		}else{
+			nameError = "";
 		}
 
 		const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (!this.state.email || reg.test(this.state.email) === false) {
       emailError = "Email Field is Invalid ";
-    }
+    }else{
+			emailError = "";
+		}
 
-    if (!this.state.password) {
+    if (!this.state.phone) {
       phoneError = "Phone field is required";
-    }
+    }else{
+			phoneError = "";
+		}
 
 		if (!this.state.message) {
       messageError = "Message field is required";
-    }
+    }else{
+			messageError = "";
+		}
 
     if (emailError || nameError || phoneError || messageError) {
       this.setState({ nameError, emailError, phoneError, messageError });
       return false;
     }
-    return true;
+    
+			Swal.fire({  
+				title: 'Success',  
+				type: 'success',  
+				text: 'We will get back to you shortly!',  
+			});  
 	}
 
-	// message handler
-	handleMessageChange = (event) =>{
-		this.setState({
-			message: event.target.value
-		})
-	}
+
 
 
 
@@ -85,6 +109,7 @@ class Contact extends Component {
 	onFormSubmit = (event) =>{
 
       event.preventDefault();
+
 			const newUser ={
 				name: this.state.name,
 				email: this.state.email,
@@ -97,6 +122,8 @@ class Contact extends Component {
 				console.log(res.data);
 			});
 
+			this.validate();
+
 			this.setState( state =>({
 				users: state.users.concat(newUser),
 				name: '',
@@ -104,8 +131,6 @@ class Contact extends Component {
 				phone: '',
 				message: '',
 			}))
-
-			this.validate();
 	}
 
 	render() {
