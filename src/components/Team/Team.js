@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { RiPhoneFill } from 'react-icons/ri';
+import Modal from '../Modal';
 
 import './Team.css';
 
-function Team() {
+const Team = () =>{
+
+	const [show, setShow] = useState(false);
+
+	// function to show the modal
+	const showModal = () => {
+		setShow(true);
+	};
+
+	// function to close the modal
+	const closeModal = () => {
+		setShow(false);
+	};
 	return (
 		<div className="team" id="doctors">
 			<h1>Choose Your Doctor</h1>
@@ -21,7 +34,8 @@ function Team() {
 						</i>
 						<a href="(123) 123-7899">(123) 123-7899</a>
 					</h6>
-					<button className='book-btn'>Book Now!</button>
+					<Modal show={show} handleClose={closeModal}></Modal>
+					<button className='book-btn' onClick={showModal}>Book Now!</button>
 				</div>
 
 				<div className="member">
@@ -35,7 +49,8 @@ function Team() {
 						</i>
 						<a href="(123) 123-7899">(123) 123-7899</a>
 					</h6>
-					<button className='book-btn'>Book Now!</button>
+					<Modal show={show} handleClose={closeModal}></Modal>
+					<button className='book-btn' onClick={showModal}>Book Now!</button>
 				</div>
 
 				<div className="member">
@@ -49,7 +64,8 @@ function Team() {
 						</i>
 						<a href="(123) 123-7899">(123) 123-7899</a>
 					</h6>
-					<button className='book-btn'>Book Now!</button>
+					<Modal show={show} handleClose={closeModal}></Modal>
+					<button className='book-btn' onClick={showModal}>Book Now!</button>
 				</div>
 			</div>
 
