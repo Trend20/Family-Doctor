@@ -21,6 +21,7 @@ function Team() {
 						</i>
 						<a href="(123) 123-7899">(123) 123-7899</a>
 					</h6>
+					<button className='book-btn'>Book Now!</button>
 				</div>
 
 				<div className="member">
@@ -34,6 +35,7 @@ function Team() {
 						</i>
 						<a href="(123) 123-7899">(123) 123-7899</a>
 					</h6>
+					<button className='book-btn'>Book Now!</button>
 				</div>
 
 				<div className="member">
@@ -47,6 +49,7 @@ function Team() {
 						</i>
 						<a href="(123) 123-7899">(123) 123-7899</a>
 					</h6>
+					<button className='book-btn'>Book Now!</button>
 				</div>
 			</div>
 
