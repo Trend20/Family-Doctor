@@ -36,19 +36,19 @@ class FAQs extends Component {
 	};
 
 
-	showPageContents = () =>{
-		if(this.state.toggleSign){
-			this.setState({
-				showContent: !false
-			})
-			this.handleToggle();
-		}else{
-			this.setState({
-				showContent: false
-			})
-			this.handleToggle();
-		}
-	}
+	// showPageContents = () =>{
+	// 	if(this.state.toggleSign){
+	// 		this.setState({
+	// 			showContent: !false
+	// 		})
+	// 		this.handleToggle();
+	// 	}else{
+	// 		this.setState({
+	// 			showContent: false
+	// 		})
+	// 		this.handleToggle();
+	// 	}
+	// }
 
 	render() {
 		return (
@@ -60,12 +60,12 @@ class FAQs extends Component {
 						this.state.description.map((question, index) =>{
 							return(
 								<div className="question-container" key={index}>
-									<div className="quiz-head" onClick={this.showPageContents()}>
+									{/* <div className="quiz-head" onClick={this.showPageContents()}>
 										<h5>
 											{question.quiz}
 										</h5>
 										<i>{this.state.toggleSign ? <TiPlus /> : <TiMinus />}</i>
-									</div>
+									</div> */}
 									{
 										this.state.showContent ? <p>{question.content}</p> : null
 									}
