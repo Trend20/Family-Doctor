@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { RiPhoneFill } from 'react-icons/ri';
 import Modal from '../Modal';
+import BookModal from '../Book/BookModal';
 
 import './Team.css';
 
@@ -34,7 +35,7 @@ const Team = () =>{
 						</i>
 						<a href="(123) 123-7899">(123) 123-7899</a>
 					</h6>
-					<Modal show={show} handleClose={closeModal}></Modal>
+					<BookModal show={show} handleClose={closeModal}></BookModal>
 					<button className='book-btn' onClick={showModal}>Book Now!</button>
 				</div>
 
@@ -49,7 +50,7 @@ const Team = () =>{
 						</i>
 						<a href="(123) 123-7899">(123) 123-7899</a>
 					</h6>
-					<Modal show={show} handleClose={closeModal}></Modal>
+					<BookModal show={show} handleClose={closeModal}></BookModal>
 					<button className='book-btn' onClick={showModal}>Book Now!</button>
 				</div>
 
@@ -64,7 +65,7 @@ const Team = () =>{
 						</i>
 						<a href="(123) 123-7899">(123) 123-7899</a>
 					</h6>
-					<Modal show={show} handleClose={closeModal}></Modal>
+					<BookModal show={show} handleClose={closeModal}></BookModal>
 					<button className='book-btn' onClick={showModal}>Book Now!</button>
 				</div>
 			</div>
