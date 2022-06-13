@@ -78,7 +78,7 @@ function BookModal({ handleClose, show, children }) {
 					cols="10"
 					rows="3"
 					value={message}
-					placeholder="Message*"
+					placeholder="Appointment Reason*"
 					onChange={handleMessageInput}
 				></textarea>
 				<button type="submit">
