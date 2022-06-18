@@ -50,7 +50,7 @@ function BookModal({ handleClose, show, children }) {
 			Swal.fire({
 				icon: 'error',
 				title: 'Oops...',
-				text: 'Please! Enter details to Book!',
+				text: 'Please! Enter details to Book Your Doctor!',
 				timer: 2500
 			})
 		}

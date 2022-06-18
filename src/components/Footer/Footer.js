@@ -23,14 +23,14 @@ function Footer() {
             <div className="info">
                 <h3>Information</h3>
                 <div className="info-links">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Services</a>
-                    <a href="#">Doctors</a>
+                    <a href="">Home</a>
+                    <a href="about">About</a>
+                    <a href="services">Services</a>
+                    <a href="doctors">Doctors</a>
                     <a href="#">Gallery</a>
-                    <a href="#">Partners</a>
+                    <a href="partners">Partners</a>
                     <a href="#">Testimonials</a>
-                    <a href="#">Contacts</a>
+                    <a href="contact">Contacts</a>
                 </div>
             </div>
 
