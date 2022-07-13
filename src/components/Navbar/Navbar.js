@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
-import { Link as LoginLink } from  'react-router-dom'
 import { AiOutlineClose } from 'react-icons/ai';
 import { FaBars } from 'react-icons/fa';
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import './Navbar.css';
 
 function Navbar() {
@@ -15,7 +14,7 @@ function Navbar() {
 		<div className="navbar">
 			<header>
 				<div className="logo">
-					<a href="#">
+					<a href="/">
 						<img src="../../logo.png" alt="" />
 						<h1>Family Doctor</h1>
 					</a>

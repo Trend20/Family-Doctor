@@ -8,7 +8,7 @@ header {
 
 .logo {
 	display: flex;
-	width: 30%;
+	width: 40%;
 	align-items: center;
 }
 
@@ -21,6 +21,7 @@ header {
 
 .logo a img {
 	max-width: 100%;
+	display: flex;
 	transform: scale(1, 0.8);
 }
 
